@@ -5,7 +5,7 @@ function Ex7ListRender() {
   const [postList, setPostList] = useState(postDummyList);
   const [selectedUser, setSelectedUser] = useState("");
 
-  const userIdFilter = (userId: string) => {
+  const userIdFilter = (userId: string): void => {
     const filteredList = userId
       ? postDummyList.filter((post) => post.userId === +userId)
       : postDummyList;
@@ -23,11 +23,16 @@ function Ex7ListRender() {
           id="user-id"
           onChange={(e) => userIdFilter(e.target.value)}
         >
-          {postList.map((post) => {
-            const { id, userId } = post;
-
-            return <option key={id}>{userId}</option>;
-          })}
+          {postList
+            .reduce<number[]>((userIdList, post) => {
+              if (!userIdList.includes(post.userId)) {
+                userIdList.push(post.userId);
+              }
+              return userIdList;
+            }, [])
+            .map((userId) => {
+              return <option key={userId}>{userId}</option>;
+            })}
         </select>
       </div>
       {postList.map((post) => {
