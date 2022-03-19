@@ -9,6 +9,7 @@ import Ex5SetstateMultipleFunc from "./pages/ex5-setstate-multiple-func";
 import Ex6StateObjectFunc from "./pages/ex6-state-object-func";
 import Ex7ListRender from "./pages/ex7-list-render";
 import Message from "./pages/message";
+import ListRender from "./solution/ListRender";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       {/* <Ex4CounterFunc></Ex4CounterFunc> */}
       {/* <Ex5SetstateMultipleFunc></Ex5SetstateMultipleFunc> */}
       {/* <Ex6StateObjectFunc></Ex6StateObjectFunc> */}
-      <Ex7ListRender></Ex7ListRender>
+      {/* <Ex7ListRender></Ex7ListRender> */}
+      <ListRender />
     </>
   );
 }
